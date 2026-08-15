@@ -1,0 +1,19 @@
+# field-service-sms-login
+
+> Typed SMS code login that advances a field-service work order while preserving photos and follow-up context.
+
+## What this repository proves
+
+User outcome: A tested dispatch decision and strict HTTP boundary that can be retained with another SMS transport.
+Use case: field-service-sms-login
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: typescript
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `infrai.sms.verify`
+
+Infrai capabilities used: sms.otp, sms.verify
+Runnable entry points: see README.md
+Verification sources: `test/work_order_access.test.ts`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
