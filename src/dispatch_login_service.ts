@@ -53,7 +53,12 @@ export function createDispatchLoginService(store: WorkOrderStore) {
     }
     try {
       const sms = { otp: infrai.sms.otp, verify: infrai.sms.verify };
-      const result = await verifyTechnicianAndDispatch(sms, store, parsed.data);
+      const result = await verifyTechnicianAndDispatch(sms, store, {
+        phone: parsed.data.phone!,
+        code: parsed.data.code!,
+        requestId: parsed.data.requestId!,
+        workOrderId: parsed.data.workOrderId!,
+      });
       response.status(result.outcome === "dispatched" ? 200 : 404).json(result);
     } catch (error) {
       sendServiceError(response, error);

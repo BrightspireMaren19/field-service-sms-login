@@ -10,3 +10,5 @@ const response = await fetch(`${baseUrl}/login/code`, {
 });
 const result = await response.json();
 console.log(result);
+
+export {};
